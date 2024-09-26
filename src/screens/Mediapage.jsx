@@ -2,6 +2,8 @@ import { Carousel } from "antd";
 import React, { useRef, useState } from "react";
 import Filerenderer from "../components/Filerenderer";
 import ReactPlayer from "react-player";
+import "antd/dist/reset.css";
+import "../index.css";
 
 const Mediapage = () => {
   const files = [

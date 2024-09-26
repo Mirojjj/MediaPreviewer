@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styling for the arrows */
+.slick-prev, .slick-next {
+  background-color: rgba(0, 0, 0, 0.5) !important;  /* Dark semi-transparent background */
+  border-radius: 50% !important; /* Make arrows circular */
+  height: 60px !important;
+  width: 60px !important;
+  padding: 40px !important;
+  /* display: flex !important;
+  align-items: center !important;
+  justify-content: center !important; */
+  z-index: 1000 !important; /* Ensure arrows are above the images */
+}
+
+:where(.css-dev-only-do-not-override-5wsri9).ant-carousel .slick-next::after {
+  transform: rotate(130deg) !important;
+}
+
+:where(.css-dev-only-do-not-override-5wsri9).ant-carousel .slick-prev::after {
+  transform: rotate(-45deg) !important;
+}
+
+
+
+.slick-prev::after, .slick-next::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 40% !important; /* Move the element 50% down from the top */
+  left: 40% !important; /* Move the element 50% right from the left */
+  transform: translate(-50%, -50%) !important;  
+  color: white !important; /* White color for arrow icons */
+  font-size: 28px !important; /* Increase the size of the arrow */
+  opacity: 1; /* Ensure arrow is fully visible */
+}
+
+/* On hover, make the arrows slightly darker */
+.slick-prev:hover, .slick-next:hover {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+
+}
+
+/* Position the arrows closer to the images */
+.slick-prev {
+  left: 80px !important; /* Adjust position for the previous arrow */
+}
+
+.slick-next {
+  right: 80px !important; /* Adjust position for the next arrow */
+}
