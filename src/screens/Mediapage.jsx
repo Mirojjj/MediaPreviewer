@@ -108,7 +108,7 @@ const Mediapage = () => {
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center bg-[#424242]">
       {/* Main Carousel for Previewing the Image */}
-      <div className="w-full flex justify-between backdrop-brightness-50 px-12 py-6 text-white">
+      <div className="w-full flex justify-between backdrop-brightness-50 px-6 py-6 text-white">
         <div className="flex gap-3">
           <div className=" w-10 h-10 rounded-lg bg-white"></div>
           <div>
@@ -146,7 +146,7 @@ const Mediapage = () => {
           {files.map((file, index) => (
             <div
               key={index}
-              className=" backdrop-brightness-50 h-[78vh] w-full relative"
+              className=" backdrop-brightness-50 h-[80vh] w-full relative"
             >
               <Filerenderer file={file} />
             </div>
@@ -155,12 +155,14 @@ const Mediapage = () => {
       </div>
 
       {/* Thumbnail Previewer */}
-      <div className="w-full h-full py-2 flex justify-start pl-3 space-x-4 overflow-x-auto">
+      <div className="w-full h-full py-2 flex justify-start pl-6 space-x-2 overflow-x-auto">
         {files.map((file, index) => (
           <div
             key={index}
-            className={`p-0 !important cursor-pointer border-2 rounded-lg h-[100%] w-28 ${
-              currentSlide === index ? "border-blue-500" : "border-transparent"
+            className={`p-0 !important cursor-pointer border-2 rounded-lg h-[100%] w-20 ${
+              currentSlide === index
+                ? "border-blue-500  bg-transparent"
+                : "border-transparent bg-gray-500 opacity-50"
             }`}
             onClick={() => handleThumbnailClick(index)}
           >
@@ -177,7 +179,7 @@ const Mediapage = () => {
                   url={file.src}
                   width="100%"
                   height="100%"
-                  light
+                  light={file.src}
                   playIcon={<div style={{ color: "#fff" }}>▶</div>}
                 />
               </div>

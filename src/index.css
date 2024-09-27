@@ -49,9 +49,9 @@
 
 /* Position the arrows closer to the images */
 .slick-prev {
-  left: 80px !important; /* Adjust position for the previous arrow */
+  left: 24px !important; /* Adjust position for the previous arrow */
 }
 
 .slick-next {
-  right: 80px !important; /* Adjust position for the next arrow */
+  right: 24px !important; /* Adjust position for the next arrow */
 }
