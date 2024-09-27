@@ -5,6 +5,7 @@ import {
   CloseOutlined,
   ShareAltOutlined,
   DownloadOutlined,
+  FilePdfOutlined,
 } from "@ant-design/icons";
 import { Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -120,7 +121,7 @@ const Mediapage = () => {
           </div>
         </div>
 
-        <div className=" text-lg tracking-normal font-light absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className=" text-md tracking-normal font-light absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           {currentSlide + 1} of {files.length}
         </div>
 
@@ -154,11 +155,11 @@ const Mediapage = () => {
       </div>
 
       {/* Thumbnail Previewer */}
-      <div className="w-full h-full py-3 flex justify-center space-x-4 overflow-x-auto">
+      <div className="w-full h-full py-2 flex justify-start pl-3 space-x-4 overflow-x-auto">
         {files.map((file, index) => (
           <div
             key={index}
-            className={`p-0 !important cursor-pointer border-2 rounded-lg h-20 w-20 ${
+            className={`p-0 !important cursor-pointer border-2 rounded-lg h-[100%] w-28 ${
               currentSlide === index ? "border-blue-500" : "border-transparent"
             }`}
             onClick={() => handleThumbnailClick(index)}
@@ -182,8 +183,9 @@ const Mediapage = () => {
               </div>
             )}
             {file.type === "pdf" && (
-              <div className="h-full w-full rounded-lg bg-black">
-                <p
+              <div className="h-full w-full rounded-lg bg-white flex justify-center items-center">
+                <FilePdfOutlined className=" text-5xl text-red-600 " />
+                {/* <p
                   style={{
                     color: "#fff",
                     textAlign: "center",
@@ -191,7 +193,7 @@ const Mediapage = () => {
                   }}
                 >
                   PDF
-                </p>
+                </p> */}
               </div>
             )}
           </div>

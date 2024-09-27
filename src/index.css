@@ -12,9 +12,9 @@
 .slick-prev, .slick-next {
   background-color: rgba(0, 0, 0, 0.5) !important;  /* Dark semi-transparent background */
   border-radius: 50% !important; /* Make arrows circular */
-  height: 60px !important;
-  width: 60px !important;
-  padding: 40px !important;
+  height: 40px !important;
+  width: 40px !important;
+  padding: 30px !important;
   /* display: flex !important;
   align-items: center !important;
   justify-content: center !important; */
@@ -35,7 +35,7 @@
   content: "" !important;
   position: absolute !important;
   top: 40% !important; /* Move the element 50% down from the top */
-  left: 40% !important; /* Move the element 50% right from the left */
+  left: 36% !important; /* Move the element 50% right from the left */
   color: white !important; /* White color for arrow icons */
   font-size: 28px !important; /* Increase the size of the arrow */
   opacity: 1; /* Ensure arrow is fully visible */
