@@ -15,13 +15,13 @@
   z-index: 1000 !important; /* Ensure arrows are above the images */
 }
 
-:where(.css-dev-only-do-not-override-5wsri9).ant-carousel .slick-next::after {
+/* :where(.css-dev-only-do-not-override-5wsri9).ant-carousel .slick-next::after {
   transform: rotate(130deg) !important;
 }
 
 :where(.css-dev-only-do-not-override-5wsri9).ant-carousel .slick-prev::after {
   transform: rotate(-45deg) !important;
-}
+} */
 
 
 
@@ -30,7 +30,6 @@
   position: absolute !important;
   top: 40% !important; /* Move the element 50% down from the top */
   left: 40% !important; /* Move the element 50% right from the left */
-  transform: translate(-50%, -50%) !important;  
   color: white !important; /* White color for arrow icons */
   font-size: 28px !important; /* Increase the size of the arrow */
   opacity: 1; /* Ensure arrow is fully visible */
