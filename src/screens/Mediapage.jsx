@@ -134,7 +134,7 @@ const Mediapage = () => {
         {files.map((file, index) => (
           <div
             key={index}
-            className={`p-0 cursor-pointer border-2 rounded-lg ${
+            className={`p-0 !important cursor-pointer border-2 rounded-lg ${
               currentSlide === index ? "border-blue-500" : "border-transparent"
             }`}
             onClick={() => handleThumbnailClick(index)}
