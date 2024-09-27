@@ -13,7 +13,7 @@ const Filerenderer = ({ file }) => {
         <img
           src={file.src}
           alt="File"
-          className="h-[80vh] w-1/2 object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="h-[78vh] w-1/2 object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
       );
     case "video":
@@ -22,12 +22,12 @@ const Filerenderer = ({ file }) => {
           url={file.src}
           controls
           width="100%"
-          height="88vh" // Adjust height for videos
+          height="78vh" // Adjust height for videos
         />
       );
     case "pdf":
       return (
-        <div className="h-[88vh] w-full flex justify-center ">
+        <div className="h-[78vh] w-full flex justify-center ">
           <Worker
             workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`}
           >
