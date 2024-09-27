@@ -25,12 +25,12 @@ const Mediapage = () => {
   };
 
   const files = [
-    { type: "image", src: "src/assets/img1.png" },
-    { type: "image", src: "src/assets/img2.png" },
-    { type: "image", src: "src/assets/img3.png" },
-    { type: "image", src: "src/assets/img4.png" },
-    { type: "video", src: "src/assets/vid1.mp4" },
-    { type: "pdf", src: "src/assets/idea.pdf" },
+    { type: "image", src: "/assets/img1.png" },
+    { type: "image", src: "/assets/img2.png" },
+    { type: "image", src: "/assets/img3.png" },
+    { type: "image", src: "/assets/img4.png" },
+    { type: "video", src: "/assets/vid1.mp4" },
+    { type: "pdf", src: "/assets/idea.pdf" },
   ];
 
   const items = [
