@@ -134,7 +134,7 @@ const Mediapage = () => {
         {files.map((file, index) => (
           <div
             key={index}
-            className={`cursor-pointer border-2 rounded-lg ${
+            className={`p-0 cursor-pointer border-2 rounded-lg ${
               currentSlide === index ? "border-blue-500" : "border-transparent"
             }`}
             onClick={() => handleThumbnailClick(index)}
@@ -151,14 +151,14 @@ const Mediapage = () => {
                 <ReactPlayer
                   url={file.src}
                   width="100%"
-                  height="80px"
+                  height="100%"
                   light
                   playIcon={<div style={{ color: "#fff" }}>▶</div>}
                 />
               </div>
             )}
             {file.type === "pdf" && (
-              <div className="h-20 w-20  rounded-lg bg-black">
+              <div className="h-20 w-20 rounded-lg bg-black">
                 <p
                   style={{
                     color: "#fff",
