@@ -1,5 +1,5 @@
 import { Carousel } from "antd";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   EllipsisOutlined,
   CloseOutlined,
@@ -16,6 +16,30 @@ import "../index.css";
 
 const Mediapage = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", handleCloseEsc);
+
+    return () => {
+      document.removeEventListener("keydown", handleCloseEsc);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowRight") {
+      carouselRef.current.next();
+    } else if (event.key === "ArrowLeft") {
+      carouselRef.current.prev();
+    }
+  };
+
+  const handleCloseEsc = (event) => {
+    if (event.key === "Escape") {
+      handleClose();
+    }
+  };
 
   const handleClose = () => {
     const previousPage = localStorage.getItem("previousPage");
@@ -134,7 +158,7 @@ const Mediapage = () => {
         {files.map((file, index) => (
           <div
             key={index}
-            className={`p-0 !important cursor-pointer border-2 rounded-lg ${
+            className={`p-0 !important cursor-pointer border-2 rounded-lg h-20 w-20 ${
               currentSlide === index ? "border-blue-500" : "border-transparent"
             }`}
             onClick={() => handleThumbnailClick(index)}
@@ -143,11 +167,11 @@ const Mediapage = () => {
               <img
                 src={file.src}
                 alt={`Thumbnail ${index + 1}`}
-                className="h-20 w-20 object-cover rounded-lg"
+                className="h-full w-full object-cover rounded-lg"
               />
             )}
             {file.type === "video" && (
-              <div className="h-20 w-20  rounded-lg bg-black">
+              <div className="h-full w-full  rounded-lg bg-black">
                 <ReactPlayer
                   url={file.src}
                   width="100%"
@@ -158,7 +182,7 @@ const Mediapage = () => {
               </div>
             )}
             {file.type === "pdf" && (
-              <div className="h-20 w-20 rounded-lg bg-black">
+              <div className="h-full w-full rounded-lg bg-black">
                 <p
                   style={{
                     color: "#fff",
