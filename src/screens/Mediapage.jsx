@@ -17,6 +17,7 @@ import "../index.css";
 
 const Mediapage = () => {
   const navigate = useNavigate();
+  const [zoomLevel, setZoomLevel] = useState(1);
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
@@ -57,6 +58,26 @@ const Mediapage = () => {
     { type: "video", src: "/assets/vid1.mp4" },
     { type: "pdf", src: "/assets/idea.pdf" },
   ];
+
+  const handleZoomChange = (e) => {
+    const newZoomLevel = parseFloat(e.target.value);
+    setZoomLevel(newZoomLevel);
+    // onZoomChange(newZoomLevel); // Pass the zoom level to parent or Filerenderer
+  };
+
+  const handleZoomOut = () => {
+    const newZoomLevel = Math.max(zoomLevel - 0.1, 1);
+    setZoomLevel(newZoomLevel);
+  };
+
+  const handleZoomIn = () => {
+    const newZoomLevel = Math.min(zoomLevel + 0.1, 3);
+    setZoomLevel(newZoomLevel);
+  };
+
+  const handleResetZoom = () => {
+    setZoomLevel(1);
+  };
 
   const items = [
     {
@@ -121,8 +142,51 @@ const Mediapage = () => {
           </div>
         </div>
 
-        <div className=" text-md tracking-normal font-light absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        {/* <div className=" text-md tracking-normal font-light absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           {currentSlide + 1} of {files.length}
+        </div> */}
+
+        {/* <input
+          type="range"
+          min="1"
+          max="3"
+          step="0.01"
+          value={zoomLevel}
+          onChange={handleZoomChange}
+          className="zoom-slider"
+        /> */}
+
+        <div className="flex items-center bg-[#424242] p-2 rounded-md space-x-2">
+          <button
+            onClick={handleZoomOut}
+            className="text-white text-xl focus:outline-none"
+          >
+            -
+          </button>
+
+          <input
+            type="range"
+            min="1"
+            max="3"
+            step="0.01"
+            value={zoomLevel}
+            onChange={handleZoomChange}
+            className="w-32 bg-gray-600 appearance-none h-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <button
+            onClick={handleZoomIn}
+            className="text-white text-xl focus:outline-none"
+          >
+            +
+          </button>
+
+          <button
+            onClick={handleResetZoom}
+            className="text-white text-xl focus:outline-none"
+          >
+            ⟳
+          </button>
         </div>
 
         <div className="flex gap-8">
@@ -148,7 +212,7 @@ const Mediapage = () => {
               key={index}
               className=" backdrop-brightness-50 h-[80vh] w-full relative"
             >
-              <Filerenderer file={file} />
+              <Filerenderer file={file} zoomLevel={zoomLevel} />
             </div>
           ))}
         </Carousel>
