@@ -6,6 +6,9 @@ import {
   ShareAltOutlined,
   DownloadOutlined,
   FilePdfOutlined,
+  PlusOutlined,
+  MinusOutlined,
+  RedoOutlined,
 } from "@ant-design/icons";
 import { Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -156,13 +159,11 @@ const Mediapage = () => {
           className="zoom-slider"
         /> */}
 
-        <div className="flex items-center bg-[#424242] p-2 rounded-md space-x-2">
-          <button
+        <div className="flex items-center bg-transparent p-2 rounded-md space-x-2">
+          <MinusOutlined
             onClick={handleZoomOut}
-            className="text-white text-xl focus:outline-none"
-          >
-            -
-          </button>
+            className="text-white text-xl focus:outline-none p-1 hover:bg-[#424242]"
+          />
 
           <input
             type="range"
@@ -174,19 +175,15 @@ const Mediapage = () => {
             className="w-32 bg-gray-600 appearance-none h-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 
-          <button
+          <PlusOutlined
             onClick={handleZoomIn}
-            className="text-white text-xl focus:outline-none"
-          >
-            +
-          </button>
+            className="text-white text-xl p-1 focus:outline-none hover:bg-[#424242]"
+          />
 
-          <button
+          <RedoOutlined
             onClick={handleResetZoom}
-            className="text-white text-xl focus:outline-none"
-          >
-            ⟳
-          </button>
+            className="text-white text-xl focus:outline-none p-1 hover:bg-[#424242]"
+          />
         </div>
 
         <div className="flex gap-8">
