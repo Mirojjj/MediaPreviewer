@@ -162,7 +162,7 @@ const Mediapage = () => {
         <div className="flex items-center bg-transparent p-2 rounded-md space-x-2">
           <MinusOutlined
             onClick={handleZoomOut}
-            className="text-white text-xl focus:outline-none p-1 hover:bg-[#424242]"
+            className="text-white text-lg focus:outline-none p-1 hover:bg-[#424242]"
           />
 
           <input
@@ -177,12 +177,12 @@ const Mediapage = () => {
 
           <PlusOutlined
             onClick={handleZoomIn}
-            className="text-white text-xl p-1 focus:outline-none hover:bg-[#424242]"
+            className="  text-white text-lg p-1 focus:outline-none hover:bg-[#424242]"
           />
 
           <RedoOutlined
             onClick={handleResetZoom}
-            className="text-white text-xl focus:outline-none p-1 hover:bg-[#424242]"
+            className="text-white text-lg focus:outline-none p-1 hover:bg-[#424242]"
           />
         </div>
 
