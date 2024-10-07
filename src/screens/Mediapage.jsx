@@ -178,11 +178,18 @@ const Mediapage = () => {
             className="  text-white text-lg p-1 focus:outline-none hover:bg-[#424242]"
           />
 
-          <FullscreenOutlined
+          {/* <FullscreenOutlined
             onClick={handleResetZoom}
             className={`
             ${zoomLevel > 1 ? "block" : "hidden"}
             text-white text-md focus:outline-none p-1 hover:bg-[#424242]`}
+          /> */}
+
+          <FullscreenOutlined
+            onClick={handleResetZoom}
+            className={`
+          ${zoomLevel > 1 ? " opacity-100" : " opacity-0"}
+            text-white text-lg focus:outline-none p-1 hover:bg-[#424242] transition-opacity`}
           />
         </div>
 
