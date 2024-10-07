@@ -9,6 +9,7 @@ import {
   PlusOutlined,
   MinusOutlined,
   RedoOutlined,
+  FullscreenOutlined,
 } from "@ant-design/icons";
 import { Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +22,7 @@ import "../index.css";
 const Mediapage = () => {
   const navigate = useNavigate();
   const [zoomLevel, setZoomLevel] = useState(1);
+  const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
@@ -75,11 +77,16 @@ const Mediapage = () => {
 
   const handleZoomIn = () => {
     const newZoomLevel = Math.min(zoomLevel + 0.1, 3);
+    console.log(zoomLevel);
     setZoomLevel(newZoomLevel);
   };
 
   const handleResetZoom = () => {
     setZoomLevel(1);
+  };
+
+  const handleRotate = () => {
+    setRotation((prevRotation) => prevRotation + 90);
   };
 
   const items = [
@@ -145,20 +152,6 @@ const Mediapage = () => {
           </div>
         </div>
 
-        {/* <div className=" text-md tracking-normal font-light absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          {currentSlide + 1} of {files.length}
-        </div> */}
-
-        {/* <input
-          type="range"
-          min="1"
-          max="3"
-          step="0.01"
-          value={zoomLevel}
-          onChange={handleZoomChange}
-          className="zoom-slider"
-        /> */}
-
         <div className="flex items-center bg-transparent p-2 rounded-md space-x-2">
           <MinusOutlined
             onClick={handleZoomOut}
@@ -181,8 +174,15 @@ const Mediapage = () => {
           />
 
           <RedoOutlined
+            onClick={handleRotate}
+            className="  text-white text-lg p-1 focus:outline-none hover:bg-[#424242]"
+          />
+
+          <FullscreenOutlined
             onClick={handleResetZoom}
-            className="text-white text-lg focus:outline-none p-1 hover:bg-[#424242]"
+            className={`
+            ${zoomLevel > 1 ? "block" : "hidden"}
+            text-white text-md focus:outline-none p-1 hover:bg-[#424242]`}
           />
         </div>
 
@@ -209,7 +209,11 @@ const Mediapage = () => {
               key={index}
               className=" backdrop-brightness-50 h-[80vh] w-full relative"
             >
-              <Filerenderer file={file} zoomLevel={zoomLevel} />
+              <Filerenderer
+                file={file}
+                zoomLevel={zoomLevel}
+                rotation={rotation}
+              />
             </div>
           ))}
         </Carousel>

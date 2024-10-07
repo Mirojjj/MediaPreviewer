@@ -5,7 +5,7 @@ import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 
-const Filerenderer = ({ file, zoomLevel, onZoomReset }) => {
+const Filerenderer = ({ file, zoomLevel, rotation }) => {
   const imgRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -62,7 +62,7 @@ const Filerenderer = ({ file, zoomLevel, onZoomReset }) => {
               zoomLevel === 1 ? "fixed" : "absolute"
             }`}
             style={{
-              transform: `scale(${zoomLevel}) translate(${position.x}px, ${position.y}px)`,
+              transform: `scale(${zoomLevel}) translate(${position.x}px, ${position.y}px) rotate(${rotation}deg`,
               transition: isDragging ? "none" : "transform 0.2s ease",
               cursor:
                 zoomLevel > 1 ? (isDragging ? "grabbing" : "grab") : "default",
