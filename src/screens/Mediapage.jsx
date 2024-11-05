@@ -1,5 +1,6 @@
 import { Carousel } from "antd";
 import React, { useEffect, useRef, useState } from "react";
+
 import {
   EllipsisOutlined,
   CloseOutlined,
@@ -141,11 +142,14 @@ const Mediapage = () => {
       {/* Main Carousel for Previewing the Image */}
       <div className="w-full flex justify-between backdrop-brightness-50 px-6 py-6 text-white">
         <div className="flex gap-3">
-          <div className=" w-10 h-10 rounded-lg bg-white"></div>
+          <div
+            onClick={() => navigate("/profile")}
+            className=" w-10 h-10 rounded-lg bg-white cursor-pointer"
+          ></div>
           <div>
-            <p className=" text-base tracking-normal font-light">
+            <div className=" text-base tracking-normal font-light ">
               Subham Phuyal
-            </p>
+            </div>
             <p className=" text-xs tracking-tight font-extralight">
               17 Sep, 2024 1:25 PM-image.png
             </p>

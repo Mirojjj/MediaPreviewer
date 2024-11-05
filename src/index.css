@@ -30,6 +30,32 @@
 } */
 
 
+.profile-model .ant-modal-content{
+  width: 550px !important;
+  height: 400px !important;
+  border: 3px solid #857CE2 !important;
+  background-color: #F6F5FC !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #857CE2;
+}
+
+/* .password-modal .ant-modal-content{
+  height: 390px !important;
+  display: flex;
+} */
+
+
+.profile-model .ant-modal-close-x {
+  display: none;
+}
+
+.password-modal .ant-modal-close-x {
+  display: none;
+}
+
+
 
 .slick-prev::after, .slick-next::after {
   content: "" !important;
