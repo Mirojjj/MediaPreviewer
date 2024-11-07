@@ -1,0 +1,1 @@
+export const TEST_OLD_PASSWORD = "12345678";

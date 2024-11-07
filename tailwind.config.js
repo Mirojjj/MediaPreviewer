@@ -9,6 +9,7 @@ export default {
         "light-purple": "#F6F5FC",
         "dark-gray": "#1f2937",
         "primary-blue": "#3361E0",
+        "light-blue": "#1677FF",
       },
       borderColor: {
         "dark-purple": "#857CE2",
@@ -19,6 +20,7 @@ export default {
         "dark-purple": "#857CE2",
         "primary-blue": "#3361E0",
         "light-blue": "#1677FF",
+        "black-shade": "#383861",
       },
     },
   },

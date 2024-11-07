@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { Modal, Input, Space, Form } from "antd";
+import PersonalInformation from "../components/PersonalInformation";
+import ProfileModal from "../components/ProfileModal";
+import ChangePasswordModal from "../components/ChangePasswordModal";
+import EditProfile from "../components/EditProfile";
+
+import { useSelector } from "react-redux";
 
 const Profilepage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [passwordVisible, setPasswordVisible] = useState(false);
   const [isChangePasswordModelOpen, setIsChangePasswordMOdelOpen] =
     useState(false);
 
+  const [isEditProfile, setIsEditProfile] = useState(true);
+
+  const userData = useSelector((state) => state.user);
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -31,11 +38,8 @@ const Profilepage = () => {
     setIsChangePasswordMOdelOpen(false);
   };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+  const handleEditProfile = () => {
+    setIsEditProfile(!isEditProfile);
   };
 
   return (
@@ -45,23 +49,18 @@ const Profilepage = () => {
           <div className="absolute top-3 left-4 font-semibold text-2xl leading-tight">
             My Profile
           </div>
-          <div className=" w-[68%] h-[84%] border rounded-xl bg-white">
-            <div className=" w-full border-b h-1/2 flex justify-center items-start pt-10 relative">
-              {/* edit profile button */}
+          <div className=" w-[68%] max-h-[94%] border rounded-xl bg-white">
+            <div className=" w-full border-b h-1/2 flex justify-center items-start py-8 relative">
               <div
-                onClick={() => {
-                  console.log("edit profile");
-                }}
+                onClick={handleEditProfile}
                 className=" text-light-blue border border-light-blue px-6 py-2 absolute top-10 right-6 rounded-md cursor-pointer font-light text-sm"
               >
                 Edit Profile
               </div>
-              {/* profile section  */}
               <div className=" flex flex-col justify-center items-center gap-3">
-                {/* profile photo */}
                 <div
                   onClick={showModal}
-                  className=" border border-dark-purple h-40 w-40 rounded-xl bg-light-purple flex justify-center items-center relative"
+                  className=" border border-dark-purple h-36 w-36 rounded-xl bg-light-purple flex justify-center items-center relative cursor-pointer"
                 >
                   <div className="text-dark-purple text-4xl">SP</div>
 
@@ -80,164 +79,40 @@ const Profilepage = () => {
                     </svg>
                   </div>
                 </div>
-                {/* change and remaining */}
                 <div
                   onClick={showChangePasswordModal}
-                  className=" text-primary-blue font-medium text-lg"
+                  className=" text-primary-blue font-medium text-lg cursor-pointer"
                 >
                   Change Password
                 </div>
-                <div className=" mt-2 text-2xl font-semibold">
-                  Subham Phuyal
-                </div>
+                <p className="text-xl font-semibold text-black-shade">
+                  {userData.name}
+                </p>
+                <p className=" text-base text-black-shade">{userData.title}</p>
               </div>
             </div>
-            <div className=" px-24 pt-6">
-              <p className=" font-bold text-xl">Personal Information</p>
-              <ul>
-                <li className=" w-full flex justify-between mt-6">
-                  <div className="">Email address</div>
-                  <div className="">test</div>
-                </li>
-                <li className=" w-full flex justify-between mt-4">
-                  <div className="">Country</div>
-                  <div className="">test</div>
-                </li>
-                <li className=" w-full flex justify-between mt-4">
-                  <div className="">Phone</div>
-                  <div className="">test</div>
-                </li>
-                <li className=" w-full flex justify-between mt-4">
-                  <div className="">Title</div>
-                  <div className="">test</div>
-                </li>
-                <li className=" w-full flex justify-between mt-4">
-                  <div className="">Gender</div>
-                  <div className="">test</div>
-                </li>
-              </ul>
-            </div>
+            {isEditProfile ? (
+              <EditProfile isEdit={handleEditProfile} />
+            ) : (
+              <PersonalInformation />
+            )}
           </div>
         </div>
       </div>
 
-      <Modal
-        className="profile-model"
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={[]}
-        style={{
-          top: 240,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <h1 className=" text-6xl">SP</h1>
-      </Modal>
-      <Modal
-        open={isChangePasswordModelOpen}
-        onOk={handleChangePasswordOk}
-        onCancel={handleChangePasswordCancel}
-        className="password-modal"
-        footer={[]}
-        style={{
-          top: "250px",
-        }}
-      >
-        <Form
-          requiredMark={false}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-          layout="vertical"
-        >
-          <div className=" w-full">
-            <p className="text-center font-bold text-xl ">Change Password</p>
-          </div>
-          <br />
-          <hr className=" w-full" />
-          <br />
-          <Space direction="vertical" className=" w-full px-12 ">
-            <Form.Item
-              label="Old Password"
-              name="oldpassword"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your password!",
-                },
-              ]}
-            >
-              <Input.Password className="h-12 mt-2" />
-            </Form.Item>
+      <ProfileModal
+        isModalOpen={isModalOpen}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+      />
 
-            <Form.Item
-              label="New Password"
-              name="newpassword"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your password!",
-                },
-                {
-                  len: 8,
-                  message: "password must be at least 8 characters long.",
-                },
-              ]}
-            >
-              <Input.Password className=" h-12 mt-2" />
-            </Form.Item>
-          </Space>
-          <hr className=" mt-8" />
-          <Space
-            direction="horizontal"
-            className=" w-full px-12 mt-6 justify-between"
-          >
-            <div className=" border flex justify-center items-center py-3 px-12 w-48 rounded-lg cursor-pointer">
-              Cancel
-            </div>
-
-            <button
-              type="submit"
-              className=" border flex justify-center items-center py-3 px-12 w-48 rounded-lg cursor-pointer bg-primary-blue text-white"
-            >
-              Save
-            </button>
-          </Space>
-        </Form>
-      </Modal>
+      <ChangePasswordModal
+        isChangePasswordModelOpen={isChangePasswordModelOpen}
+        handleChangePasswordCancel={handleChangePasswordCancel}
+        handleChangePasswordOk={handleChangePasswordOk}
+      />
     </>
   );
 };
-
-// import React, { useState } from 'react';
-// import { Button, Modal } from 'antd';
-// const App = () => {
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-//   const showModal = () => {
-//     setIsModalOpen(true);
-//   };
-//   const handleOk = () => {
-//     setIsModalOpen(false);
-//   };
-//   const handleCancel = () => {
-//     setIsModalOpen(false);
-//   };
-//   return (
-//     <>
-//       <Button type="primary" onClick={showModal}>
-//         Open Modal
-//       </Button>
-//   <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-//     <p>Some contents...</p>
-//     <p>Some contents...</p>
-//     <p>Some contents...</p>
-//   </Modal>
-//     </>
-//   );
-// };
-// export default App;
 
 export default Profilepage;
