@@ -27,7 +27,7 @@ const ChangePasswordModal = ({
       className="password-modal"
       footer={[]}
       style={{
-        top: "250px",
+        top: "200px",
       }}
     >
       <Form

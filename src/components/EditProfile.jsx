@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Form, Row, Col, Input, Space, Select } from "antd";
 import CustomFormCancelBtn from "../miscellaneous/CustomFormCancelBtn";
-import CustomFormSaveBtn from "../miscellaneous/CustomFormSaveBtn";
 import { updateUserData } from "../features/userSlice";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -39,6 +38,7 @@ const EditProfile = ({ isEdit }) => {
     dispatch(updateUserData(values));
     // setFormData(values);
     console.log("Form submitted successfully", values);
+    isEdit(false);
   };
 
   useEffect(() => {
@@ -57,6 +57,10 @@ const EditProfile = ({ isEdit }) => {
       );
   }, []);
 
+  // const handleEditFormSave = () =>{
+
+  // }
+
   const genderOptions = [
     {
       value: "male",
@@ -69,7 +73,7 @@ const EditProfile = ({ isEdit }) => {
   ];
 
   return (
-    <div className=" px-32 py-8  text-black-shade">
+    <div className=" px-32 py-5  text-black-shade">
       <p className=" font-bold text-xl">Change Personal Information</p>
       <Form
         form={form}
@@ -208,7 +212,12 @@ const EditProfile = ({ isEdit }) => {
             <CustomFormCancelBtn handleCancel={isEdit} />
           </Form.Item>
           <Form.Item>
-            <CustomFormSaveBtn />
+            <button
+              type="submit"
+              className=" border flex justify-center items-center py-3 px-12 w-full rounded-lg cursor-pointer bg-light-blue text-white"
+            >
+              Save
+            </button>
           </Form.Item>
         </Space>
       </Form>

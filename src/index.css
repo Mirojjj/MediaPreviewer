@@ -2,15 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 /* Custom styling for the arrows */
-.slick-prev, .slick-next {
-  background-color: rgba(0, 0, 0, 0.5) !important;  /* Dark semi-transparent background */
+.slick-prev,
+.slick-next {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ) !important; /* Dark semi-transparent background */
   border-radius: 50% !important; /* Make arrows circular */
   height: 40px !important;
   width: 40px !important;
@@ -29,23 +35,21 @@
   transform: rotate(-45deg) !important;
 } */
 
-
-.profile-model .ant-modal-content{
+.profile-model .ant-modal-content {
   width: 550px !important;
   height: 400px !important;
-  border: 3px solid #857CE2 !important;
-  background-color: #F6F5FC !important;
+  border: 3px solid #857ce2 !important;
+  background-color: #f6f5fc !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #857CE2;
+  color: #857ce2;
 }
 
 /* .password-modal .ant-modal-content{
   height: 390px !important;
   display: flex;
 } */
-
 
 .profile-model .ant-modal-close-x {
   display: none;
@@ -55,9 +59,8 @@
   display: none;
 }
 
-
-
-.slick-prev::after, .slick-next::after {
+.slick-prev::after,
+.slick-next::after {
   content: "" !important;
   position: absolute !important;
   top: 40% !important; /* Move the element 50% down from the top */
@@ -68,9 +71,9 @@
 }
 
 /* On hover, make the arrows slightly darker */
-.slick-prev:hover, .slick-next:hover {
+.slick-prev:hover,
+.slick-next:hover {
   background-color: rgba(0, 0, 0, 0.7) !important;
-
 }
 
 /* Position the arrows closer to the images */
@@ -80,4 +83,56 @@
 
 .slick-next {
   right: 24px !important; /* Adjust position for the next arrow */
+}
+
+.ant-image {
+  position: relative;
+  display: inline-block;
+  width: 144px !important;
+  height: 144px !important;
+  border: 2px solid #857ce2;
+  border-radius: 12px;
+}
+
+.ant-popover .ant-popover-inner {
+  padding: 0;
+}
+.ant-image .ant-image-img {
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+}
+.ant-image .ant-image-mask {
+  border-radius: 12px;
+}
+
+.crop-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.crop-container .reactEasyCrop_CropArea {
+  border: none;
+}
+
+.slider-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ant-slider {
+  flex: 1;
+  max-width: 300px;
+}
+
+.edit-modal.ant-modal .ant-modal-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
