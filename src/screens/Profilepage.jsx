@@ -187,7 +187,7 @@ const Profilepage = () => {
   return (
     <>
       <div className=" w-full bg-dimblue-white flex justify-center items-center py-12">
-        <div className=" border w-[94%] h-[94%]  rounded-xl flex justify-center items-center relative py-12">
+        <div className=" border w-[94%] rounded-xl flex justify-center items-center relative py-12">
           <div className="absolute top-3 left-4 font-semibold text-2xl leading-tight">
             My Profile
           </div>
