@@ -22,6 +22,9 @@ export default {
         "light-blue": "#1677FF",
         "black-shade": "#383861",
       },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+      },
     },
   },
   plugins: [],

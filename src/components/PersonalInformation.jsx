@@ -5,27 +5,49 @@ const PersonalInformation = () => {
   const userData = useSelector((state) => state.user);
   return (
     <div className=" px-24 py-8">
-      <p className=" font-bold text-xl">Personal Information</p>
+      <p className=" font-medium text-base text-[#333] font-roboto">
+        Personal Information
+      </p>
       <ul>
         <li className=" w-full flex justify-between mt-6">
-          <p className="">Email address</p>
-          <p className="">{userData.email_address}</p>
+          <p className=" font-medium text-[13px] text-[#333] font-roboto">
+            Email address
+          </p>
+          <p className=" font-normal text-[14px] text-[#666] font-roboto">
+            {userData.email_address}
+          </p>
         </li>
         <li className=" w-full flex justify-between mt-4">
-          <p className="">Country</p>
-          <p className="">{userData.country}</p>
+          <p className=" font-medium text-[13px] text-[#333] font-roboto">
+            Country
+          </p>
+          <p className=" font-normal text-[14px] text-[#666] font-roboto">
+            {userData.country}
+          </p>
         </li>
         <li className=" w-full flex justify-between mt-4">
-          <p className="">Phone</p>
-          <p className="">{userData.phone_number}</p>
+          <p className=" font-medium text-[13px] text-[#333] font-roboto">
+            Phone
+          </p>
+          <p className="font-normal text-[14px] text-[#666] font-roboto">
+            {userData.phone_number}
+          </p>
         </li>
         <li className=" w-full flex justify-between mt-4">
-          <p className="">Title</p>
-          <p className="">{userData.title}</p>
+          <p className=" font-medium text-[13px] text-[#333] font-roboto">
+            Title
+          </p>
+          <p className="font-normal text-[14px] text-[#666] font-roboto">
+            {userData.title}
+          </p>
         </li>
         <li className=" w-full flex justify-between mt-4">
-          <p className="">Gender</p>
-          <p className="">{userData.gender}</p>
+          <p className=" font-medium text-[13px] text-[#333] font-roboto">
+            Gender
+          </p>
+          <p className="font-normal text-[14px] text-[#666] font-roboto">
+            {userData.gender}
+          </p>
         </li>
       </ul>
     </div>

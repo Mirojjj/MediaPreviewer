@@ -186,12 +186,12 @@ const Profilepage = () => {
 
   return (
     <>
-      <div className=" h-screen w-full bg-dimblue-white flex justify-center items-center">
-        <div className=" border w-[94%] h-[94%] rounded-xl flex justify-center items-center relative">
+      <div className=" w-full bg-dimblue-white flex justify-center items-center py-12">
+        <div className=" border w-[94%] h-[94%]  rounded-xl flex justify-center items-center relative py-12">
           <div className="absolute top-3 left-4 font-semibold text-2xl leading-tight">
             My Profile
           </div>
-          <div className=" w-[68%] max-h-[94%] border rounded-xl bg-white">
+          <div className=" w-[68%] h-full  border rounded-xl bg-white">
             <div className=" w-full border-b h-1/2 flex justify-center items-start py-8 relative">
               <div
                 onClick={handleEditProfile}
@@ -199,7 +199,7 @@ const Profilepage = () => {
               >
                 Edit Profile
               </div>
-              <div className=" flex flex-col justify-center items-center gap-3">
+              <div className=" flex flex-col justify-center items-center gap-2">
                 <div className="relative">
                   {imageSrc ? (
                     <Image
@@ -212,9 +212,10 @@ const Profilepage = () => {
                   ) : (
                     <div
                       onClick={showModal}
-                      className=" border border-dark-purple h-[150px] w-[150px] rounded-xl bg-light-purple flex justify-center items-center  cursor-pointer"
+                      className={`border-2 border-dark-purple
+                        h-[150px] w-[150px] rounded-xl bg-light-purple flex justify-center items-center  cursor-pointer`}
                     >
-                      <div className="text-dark-purple text-4xl">SP</div>
+                      <p className="text-dark-purple text-4xl">SP</p>
                     </div>
                   )}
 
@@ -277,13 +278,14 @@ const Profilepage = () => {
         handleChangePasswordCancel={handleChangePasswordCancel}
         handleChangePasswordOk={handleChangePasswordOk}
       />
-
+      {/* padding top: 16px. padding left and right: 20px, padding bottom: 24px */}
       <div className="edit-modal">
         <Modal
+          className=" pt-4 px-5 pb-6"
           visible={isModalVisible}
           onOk={handleOk}
           onCancel={handleCropCancel}
-          width={800}
+          width={600}
           footer={[
             <div className=" pr-8">
               <Button
@@ -306,7 +308,10 @@ const Profilepage = () => {
             </div>,
           ]}
         >
-          <h1 className=" font-bold text-2xl pt-0 pl-4 pb-4">Crop Image</h1>
+          {/* modal title: font-size:16px, weight: 500, font style: roboto, color" #333 */}
+          <h1 className=" text-base font-medium font-roboto text-[#333] mb-3">
+            Crop Image
+          </h1>
           <hr />
           <div className=" flex flex-col justify-center items-center mt-8">
             <div
@@ -350,7 +355,6 @@ const Profilepage = () => {
               onClick={handleZoomIn}
             />
           </div>
-          <hr className=" mt-7 mb-4" />
         </Modal>
       </div>
     </>

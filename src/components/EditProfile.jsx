@@ -167,7 +167,7 @@ const EditProfile = ({ isEdit }) => {
                 },
               ]}
             >
-              <Input className="h-12 mt-1" onChange={handleChange} />
+              <Input className="h-12" onChange={handleChange} />
             </Form.Item>
 
             <Form.Item
